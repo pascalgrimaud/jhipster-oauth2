@@ -30,7 +30,8 @@ script:
   # - ./mvnw test
   # - gulp test
   # - ./mvnw package -Pprod -DskipTests
-  - ./mvnw clean package -DskipTests
-  - java -jar target/*.war
-  - sleep -60
+  # - ./mvnw clean package -DskipTests
+  # - java -jar target/*.war &
+  - ./mvnw &
+  - sleep 60
   - curl -v http://localhost:8080
