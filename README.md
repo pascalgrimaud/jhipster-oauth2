@@ -1,0 +1,1 @@
+# jhipster-oauth2
