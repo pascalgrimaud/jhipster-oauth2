@@ -30,7 +30,9 @@ script:
   # - ./mvnw test
   # - gulp test
   # - ./mvnw package -Pprod -DskipTests
-  - ./mvnw clean package -Pdev -DskipTests
-  - java -jar target/*.war --spring.profiles.active=dev &
+  - docker-compose -f src/main/docker/mysql.yml up -d
+  - docker ps -a
+  - ./mvnw clean package -Pprod -DskipTests
+  - java -jar target/*.war --spring.profiles.active=prod &
   - sleep 60
   - curl -v http://localhost:8080
